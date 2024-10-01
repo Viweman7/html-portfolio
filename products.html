@@ -1,18 +1,11 @@
 <!DOCTYPE html>
-
-<html lang="en" >
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width", initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarot Products for Purchase</title>
+   
 </head>
-
-<title>Buy Products</title>
-
-<body>
-
-<h1>PRODUCT LIST</h1>
-
 <body>
     <h1>Tarot Products for Purchase</h1>
     <ul class="product-list">
@@ -45,13 +38,7 @@
 </body>
 </html>
 
-
-
-</body>
-
-</html>
-
-    <style>
+ <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -71,6 +58,9 @@
             padding: 15px;
             margin-bottom: 10px;
             transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;  /* Stack items vertically */
+            justify-content: space-between; /* Add space between elements */
         }
         .product-item:hover {
             transform: scale(1.02);
@@ -82,14 +72,17 @@
         .product-price {
             font-size: 16px;
             color: #28A745;
+            margin: 10px 0; /* Adds space above and below price */
         }
         .buy-button {
-            margin-top: 10px;
             padding: 10px 15px;
             background-color: #007BFF;
             color: white;
             text-decoration: none;
             border-radius: 4px;
+            text-align: center;
+            width: 100%; /* Make the button full width */
+            box-sizing: border-box; /* Ensure padding is within the total width */
         }
         .buy-button:hover {
             background-color: #0056b3;
