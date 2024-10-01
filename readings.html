@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Tarot Reading</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 20px;
+        }
+        h1 {
+            color: #4A235A;
+        }
+        .form-container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical; /* Allow vertical resize only */
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Book Your Tarot Reading</h1>
+<div class="form-container">
+    <form id="bookingForm">
+        <!-- Personal Details -->
+        <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" required>
+        </div>
+        <!-- Goals and Spirituality -->
+        <div class="form-group">
+            <label for="goals">What are your goals for this reading?</label>
+            <textarea id="goals" name="goals" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="spirituality">How would you describe your spirituality?</label>
+            <textarea id="spirituality" name="spirituality" rows="4" required></textarea>
+        </div>
+        <!-- Additional Information -->
+        <div class="form-group">
+            <label for="additionalInfo">Any additional information or specific questions?</label>
+            <textarea id="additionalInfo" name="additionalInfo" rows="4"></textarea>
+        </div>
+        <!-- Submit Button -->
+        <button type="submit">Book Reading</button>
+    </form>
+</div>
+
+</body>
+</html>
