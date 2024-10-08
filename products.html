@@ -3,93 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarot Products for Purchase</title>
-   
+    <style>
+
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+img {
+    width: 100%;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}        
+    </style>
+    <title>Slideshow Example</title>
 </head>
 <body>
-    <h1>Tarot Products for Purchase</h1>
-    <ul class="product-list">
-        <li class="product-item">
-            <div class="product-name">Rider-Waite Tarot Deck</div>
-            <img src="https://cdn.shopify.com/s/files/1/2419/5919/products/DTR3753_1400x.jpg?v=1609868832" width="150" height="150">
-            <div class="product-price">$22.99</div>
-            <a href="https://example.com/rider-waite-tarot" class="buy-button">Buy Now</a>
-        </li>
-        <li class="product-item">
-            <div class="product-name">Tarot of the Divine</div>
-            <img src="https://lttarot.com/wp-content/uploads/2020/08/Tarot-of-the-Divine-4.jpg" width="150" height="150">
-            <div class="product-price">$24.99</div>
-            <a href="https://example.com/tarot-of-the-divine" class="buy-button">Buy Now</a>
-        </li>
-        <li class="product-item">
-            <div class="product-name">The Wild Unknown Tarot</div>
-            <img src="https://cdn.shopify.com/s/files/1/0604/3762/7012/products/S2209a2ef6d094a2a98488e4a2af14c2fb.jpg?v=1664754850&width=1445" width="150" height="150">
-            <div class="product-price">$30.00</div>
-            <a href="https://example.com/the-wild-unknown" class="buy-button">Buy Now</a>
-        </li>
-        <li class="product-item">
-            <div class="product-name">The Modern Witch Tarot</div>
-            <img src="https://i.etsystatic.com/25655123/r/il/80691f/2934880900/il_1140xN.2934880900_1lu9.jpg" width="150" height="150">
-            <div class="product-price">$23.00</div>
-            <a href="https://example.com/modern-witch" class="buy-button">Buy Now</a>
-        </li>
-        <li class="product-item">
-            <div class="product-name">Shadowscapes Tarot</div>
-            <img src="https://cdn11.bigcommerce.com/s-sjtdec3ql9/images/stencil/1280x1280/products/1345/1532/shadowscapescards__39930.1653963606.gif?c=2" width="150" height="150">
-            <div class="product-price">$29.95</div>
-            <a href="https://example.com/shadowscapes" class="buy-button">Buy Now</a>
-        </li>
-    </ul>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="image1.jpg" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="image2.jpg" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="image3.jpg" style="width:100%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
 
- <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f9f9f9;
-        }
-        h1 {
-            color: #4A235A;
-        }
-        .product-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        .product-item {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 10px;
-            transition: transform 0.2s;
-            display: flex;
-            flex-direction: column;  /* Stack items vertically */
-            justify-content: space-between; /* Add space between elements */
-        }
-        .product-item:hover {
-            transform: scale(1.02);
-        }
-        .product-name {
-            font-size: 18px;
-            color: #333;
-        }
-        .product-price {
-            font-size: 16px;
-            color: #28A745;
-            margin: 10px 0; /* Adds space above and below price */
-        }
-        .buy-button {
-            padding: 10px 15px;
-            background-color: #007BFF;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            text-align: center;
-            width: 100%; /* Make the button full width */
-            box-sizing: border-box; /* Ensure padding is within the total width */
-        }
-        .buy-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+<script>
+
+    let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+}
+
+// Automatic slideshow
+setInterval(() => plusSlides(1), 3000); // Change image every 3 seconds
+
+
+    
+</script>
