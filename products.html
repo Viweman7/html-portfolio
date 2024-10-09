@@ -34,10 +34,12 @@
         }
 
         .nav-arrows {
-            position: absolute;
-            width: 100%;
-            top: 50%;
-            transform: translateY(-50%);
+            position: fixed; /* Fixed position */
+            bottom: 20px; /* Positioned at the bottom */
+            right: 20px; /* Positioned at the right side */
+            display: flex;
+            flex-direction: column; /* Arrange arrows vertically */
+            gap: 10px; /* Space between arrows */
         }
 
         .arrow {
@@ -45,24 +47,25 @@
             cursor: pointer;
             user-select: none;
             color: #FF5733; /* Bright color */
+            line-height: 1; /* Align vertically */
         }
 
         .content {
-            height: 100vh;
+            height: 400vh; /* Set the height to accommodate all pages */
             display: flex;
+            flex-direction: column; /* Arrange pages vertically */
             transition: transform 0.5s ease;
         }
 
         .page {
             height: 100vh;
-            width: 100vw;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: white;
             font-size: 2em;
-            position: relative; /* Added relativity for contained elements */
+            position: relative; /* Position relative for contained elements */
         }
 
         #page1 {
@@ -93,10 +96,6 @@
 <body>
     <header>
         <h1>Be Fruitful</h1>
-        <div class="nav-arrows">
-            <span class="arrow left" onclick="prevPage()">&#10094;</span>
-            <span class="arrow right" onclick="nextPage()">&#10095;</span>
-        </div>
     </header>
     
     <div class="content">
@@ -113,14 +112,19 @@
             <h2>Page 4</h2>
         </div>
     </div>
-    
+
+    <div class="nav-arrows">
+        <span class="arrow up" onclick="prevPage()">&#8593;</span>  <!-- Up arrow -->
+        <span class="arrow down" onclick="nextPage()">&#8595;</span> <!-- Down arrow -->
+    </div>
+
     <script>
         let currentPage = 0;
         const pages = document.querySelectorAll('.page');
 
         function showPage(index) {
             const content = document.querySelector('.content');
-            content.style.transform = `translateX(-${index * 100}vw)`;
+            content.style.transform = `translateY(-${index * 100}vh)`; // Change to vertical translation
         }
 
         function nextPage() {
@@ -143,19 +147,28 @@
         });
 
         // Allow touch swipes for mobile
-        let touchStartX = 0;
+        let touchStartY = 0;
 
         document.addEventListener('touchstart', (event) => {
-            touchStartX = event.touches[0].clientX;
+            touchStartY = event.touches[0].clientY;
         });
 
         document.addEventListener('touchmove', (event) => {
-            const touchEndX = event.touches[0].clientX;
-            const diffX = touchEndX - touchStartX;
+            const touchEndY = event.touches[0].clientY;
+            const diffY = touchStartY - touchEndY;
 
-            if (diffX > 50) {
+            if (diffY > 50) {
+                nextPage();
+            } else if (diffY < -50) {
                 prevPage();
-            } else if (diffX < -50) {
+            }
+        });
+
+        // Allow arrow keys to switch pages
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowUp') {
+                prevPage();
+            } else if (event.key === 'ArrowDown') {
                 nextPage();
             }
         });
